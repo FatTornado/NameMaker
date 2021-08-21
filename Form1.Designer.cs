@@ -40,6 +40,7 @@ namespace NameMaker
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.ckbRareWord = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,11 +170,25 @@ namespace NameMaker
             this.trackBar1.Value = -1;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
+            // ckbRareWord
+            // 
+            this.ckbRareWord.AutoSize = true;
+            this.ckbRareWord.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.ckbRareWord.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.ckbRareWord.Location = new System.Drawing.Point(578, 353);
+            this.ckbRareWord.Name = "ckbRareWord";
+            this.ckbRareWord.Size = new System.Drawing.Size(112, 26);
+            this.ckbRareWord.TabIndex = 11;
+            this.ckbRareWord.Text = "包含生僻字";
+            this.ckbRareWord.UseVisualStyleBackColor = true;
+            this.ckbRareWord.CheckedChanged += new System.EventHandler(this.ckbRareWord_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 453);
+            this.Controls.Add(this.ckbRareWord);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.rbLength3);
@@ -210,6 +225,7 @@ namespace NameMaker
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.CheckBox ckbRareWord;
     }
 }
 

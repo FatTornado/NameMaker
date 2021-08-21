@@ -19,6 +19,7 @@ namespace NameMaker
 
         private Random random = new Random();
         private bool isSpeak = false;
+        private bool isRareWord = false;
 
         public Form1()
         {
@@ -64,8 +65,8 @@ namespace NameMaker
         private string randomWord()
         {
             Encoding e = Encoding.GetEncoding("gb2312");
-            int regionCode = this.random.Next(16, 56);
-            int positionCode = this.random.Next(1, regionCode == 55 ? 90 : 95);
+            int regionCode = this.random.Next(16, this.isRareWord ? 88 : 56);
+            int positionCode = this.random.Next(1, (!this.isRareWord && regionCode == 55) ? 90 : 95);
             return e.GetString(new byte[] { (byte)(regionCode + 160), (byte)(positionCode + 160) });
         }
 
@@ -99,6 +100,11 @@ namespace NameMaker
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             this.speech.Rate = this.trackBar1.Value;
+        }
+
+        private void ckbRareWord_CheckedChanged(object sender, EventArgs e)
+        {
+            this.isRareWord = this.ckbRareWord.Checked;
         }
     }
 }
