@@ -37,17 +37,17 @@ namespace NameMaker
             this.cmbVoices.Text = this.cmbVoices.Items[0].ToString();
         }
 
-        private async void CreateName()
+        private void CreateName()
         {
             while (true)
             {
                 this.resetEvent.WaitOne();
                 string strName = this.txtLastName.Text;
-                strName += this.randomWord();
+                strName += this.RandomWord();
                 if (this.rbLength3.Checked ||
                     (this.rbRandom.Checked && this.random.Next(0, 2) > 0))
                 {
-                    strName += this.randomWord();
+                    strName += this.RandomWord();
                 }
                 this.lbName.Invoke((Action)(() => this.lbName.Text = strName));
 
@@ -62,7 +62,7 @@ namespace NameMaker
             }
         }
 
-        private string randomWord()
+        private string RandomWord()
         {
             Encoding e = Encoding.GetEncoding("gb2312");
             int regionCode = this.random.Next(16, this.isRareWord ? 88 : 56);
@@ -70,7 +70,7 @@ namespace NameMaker
             return e.GetString(new byte[] { (byte)(regionCode + 160), (byte)(positionCode + 160) });
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             if (this.button1.Tag.ToString() == "0")
             {
